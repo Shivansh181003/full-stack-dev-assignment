@@ -2,6 +2,33 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
+import { Open_Sans, Roboto_Mono, Poppins } from 'next/font/google'
+
+const poppins200 = Poppins({
+  subsets: ['latin'],
+  weight: "200",
+  display: 'swap',
+  variable: '--font-poppins-200',
+})
+const poppins400 = Poppins({
+  subsets: ['latin'],
+  weight: "400",
+  display: 'swap',
+  variable: '--font-poppins-400',
+})
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-opensans',
+})
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-roboto-mono',
+})
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${openSans.variable} ${robotoMono.variable} ${poppins200.variable} ${poppins400.variable} font-sans no-scrollbar`}>
       <body className={inter.className}>{children}</body>
-    </html>
+    </html> 
   );
 }

@@ -13,8 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        sans: ["var(--font-opensans)"],
+        mono: ["var(--font-roboto-mono)"],
+        "poppins-200": ["var(--font-poppins-200)"],
+        "poppins-400": ["var(--font-poppins-400)"],
+      },
       colors: {
         primary: "#00B2FF",
+        fill: "#192734",
         background: "#071829",
         // secondary: "#000000",
         // dark: "#000000",
@@ -22,6 +29,18 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [removeScrollBar],
 };
 export default config;
+
+function removeScrollBar ({ addComponents }: any) {
+  addComponents({
+    ".no-scrollbar": {
+      scrollbarWidth: "none",
+      "-ms-overflow-style": "none",
+      "&::-webkit-scrollbar": {
+        display: "none",
+      },
+    },
+  });
+}
